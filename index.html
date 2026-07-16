@@ -1,19 +1,5 @@
 <!doctype html>
-<!--
-  ═══════════════════════════════════════════════════════════════════
-  何晔辰 · Yechen He — 个人学术主页 · 方案 B「现代 Bento」
-  悬浮胶囊导航 · Bento 卡片首屏 · 渐变点缀 · 极光背景
-  (主页文件,已命名为 index.html,可直接部署)
-  ───────────────────────────────────────────────────────────────────
-  快速修改指南:
-  【1】谷歌学术链接:已设置为个人主页;如需更换,全文搜索 "SCHOLAR-LINK"
-  【2】添加照片:把照片命名为 avatar.jpg,与本文件放在同一目录即可,
-       无照片时会自动显示「何」字占位。
-  【3】新增论文:复制任意一个 <li class="pub"> 块,改标题/作者/期刊,
-       期刊用 <span class="mark mark-j">J</span>,会议用 mark-c / C。
-  【4】主题:默认跟随系统深浅色;访客的选择会被记住(localStorage)。
-  ═══════════════════════════════════════════════════════════════════
--->
+
 <html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
@@ -27,8 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 
 <script>
-/* 提前设定主题,避免闪烁 —— localStorage 全部走 try/catch,
-   在受限环境(如内嵌预览)中静默降级,不会报错。 */
+
 (function () {
   var d = document.documentElement;
   function sget(k){ try { return window.localStorage.getItem(k); } catch (e) { return null; } }
@@ -41,8 +26,7 @@
 </script>
 
 <style>
-/* ═══════════════ 方案B「现代 Bento」· Modern ═══════════════ */
-/* ───────────────────────── tokens ───────────────────────── */
+
 :root{
   --bg:        #F6F7FB;
   --surface:   #FFFFFF;
@@ -118,7 +102,7 @@ img{ max-width:100%; display:block; }
 main, footer{ position:relative; z-index:1; }
 .container{ max-width:var(--wide); margin:0 auto; padding:0 28px; }
 
-/* ─────────────── 悬浮胶囊导航 · floating pill nav ─────────────── */
+
 .nav{
   position:fixed; top:14px; left:50%; transform:translateX(-50%); z-index:60;
   display:flex; align-items:center; gap:4px;
@@ -164,7 +148,7 @@ main, footer{ position:relative; z-index:1; }
 html[data-theme="light"] .icon-sun{ display:none; }
 html[data-theme="dark"]  .icon-moon{ display:none; }
 
-/* ───────────────────── hero · bento ───────────────────── */
+
 .hero{ padding:118px 0 48px; }
 .bento{
   display:grid; grid-template-columns:.95fr 1.55fr; grid-template-rows:360px auto 1fr;
@@ -256,7 +240,7 @@ html[data-theme="dark"]  .icon-moon{ display:none; }
 }
 .btn-primary:hover{ color:#fff; border-color:transparent; filter:brightness(1.07); }
 
-/* ───────────────────── sections ───────────────────── */
+
 section{ padding:58px 0; scroll-margin-top:96px; }
 .sec-head{ margin-bottom:34px; }
 .sec-eyebrow{
@@ -270,7 +254,7 @@ section{ padding:58px 0; scroll-margin-top:96px; }
 .sec-head h2{ font-size:clamp(24px, 3vw, 30px); font-weight:700; }
 .sec-note{ color:var(--muted); font-size:13px; margin-top:12px; }
 
-/* ───────────────────── news ───────────────────── */
+
 .news-list{ list-style:none; margin:0; padding:0; max-width:var(--text); }
 .news-list li{
   display:grid; grid-template-columns:96px 28px 1fr; gap:13px 16px; align-items:start;
@@ -285,7 +269,7 @@ section{ padding:58px 0; scroll-margin-top:96px; }
 .news-list .mark{ width:28px; height:28px; font-size:13px; border-radius:9px; margin-top:1px; }
 .news-list b{ font-weight:600; }
 
-/* marks · J/C 徽标 */
+
 .mark{
   width:34px; height:34px; flex:none; border-radius:11px;
   display:inline-grid; place-items:center;
@@ -295,7 +279,7 @@ section{ padding:58px 0; scroll-margin-top:96px; }
 .mark-c{ color:var(--accent-2); background:color-mix(in srgb, var(--accent-2) 14%, transparent); }
 .mark-n{ color:var(--muted);  background:color-mix(in srgb, var(--muted) 13%, transparent); font-size:12.5px; }
 
-/* ───────────────── research · 图标卡 ───────────────── */
+
 .ri-intro{ max-width:var(--text); font-size:15.5px; margin-bottom:34px; }
 .ri-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:16px; }
 .ri-card{
@@ -314,7 +298,7 @@ section{ padding:58px 0; scroll-margin-top:96px; }
 .ri-card h3{ font-size:17.5px; margin:0 0 8px; font-weight:600; }
 .ri-card p{ font-size:13.5px; color:var(--muted); line-height:1.7; margin:0; }
 
-/* ───────────────── publications ───────────────── */
+
 .pub-legend{
   display:flex; flex-wrap:wrap; gap:16px; align-items:center;
   font-size:12px; color:var(--muted); margin-top:12px; font-family:var(--mono);
@@ -360,7 +344,7 @@ section{ padding:58px 0; scroll-margin-top:96px; }
 .patent-title{ font-weight:600; font-size:14.5px; }
 .patent-meta{ font-size:12px; color:var(--muted); font-family:var(--mono); margin-top:5px; }
 
-/* ───────────────── education · 时间轴 ───────────────── */
+
 .tl{ list-style:none; margin:0; padding:0 0 0 26px; max-width:var(--text); position:relative; }
 .tl::before{
   content:""; position:absolute; left:4px; top:14px; bottom:14px; width:2px;
@@ -382,7 +366,7 @@ section{ padding:58px 0; scroll-margin-top:96px; }
 .tl-org{ font-size:13.5px; color:var(--accent); font-weight:600; margin:0 0 7px; }
 .tl-body p{ font-size:13px; color:var(--muted); margin:0; line-height:1.7; }
 
-/* ───────────────── 定义式列表 · honors & service ───────────────── */
+
 .def-list{ max-width:var(--text); }
 .def-row{
   display:grid; grid-template-columns:200px 1fr; gap:8px 30px;
@@ -410,7 +394,7 @@ section{ padding:58px 0; scroll-margin-top:96px; }
   padding:3px 9px; flex:none; min-width:58px; text-align:center;
 }
 
-/* ───────────────── service & contact ───────────────── */
+
 .sv-abbr{
   font-family:var(--mono); font-size:10px; letter-spacing:.12em; color:var(--muted);
   background:var(--surface-2); border-radius:999px; padding:3px 9px;
@@ -418,7 +402,7 @@ section{ padding:58px 0; scroll-margin-top:96px; }
 .contact-line{ font-size:15.5px; max-width:var(--text); margin:0; }
 .contact-line a{ font-weight:600; }
 
-/* ───────────────── footer ───────────────── */
+
 footer{ border-top:1px solid var(--line); padding:34px 0 44px; margin-top:40px; }
 .foot-inner{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; color:var(--muted); font-size:12.5px; }
 .foot-logo{
@@ -429,7 +413,7 @@ footer{ border-top:1px solid var(--line); padding:34px 0 44px; margin-top:40px; 
 }
 .foot-spacer{ flex:1; }
 
-/* ───────────────── motion ───────────────── */
+
 @keyframes rise{ from{ opacity:0; transform:translateY(16px); } to{ opacity:1; transform:none; } }
 .rise{ opacity:0; animation:rise .7s ease forwards; }
 .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
@@ -444,7 +428,7 @@ footer{ border-top:1px solid var(--line); padding:34px 0 44px; margin-top:40px; 
   *{ transition-duration:.01ms !important; }
 }
 
-/* ───────────────── responsive ───────────────── */
+
 @media (max-width:960px){
   .nav-links{ display:none; }
   .brand{ margin-right:auto; }
@@ -472,7 +456,7 @@ footer{ border-top:1px solid var(--line); padding:34px 0 44px; margin-top:40px; 
   .card-photo, .card-status, .card-links{ max-width:none; }
 }
 
-/* print */
+
 @media print{
   .nav, .btn-row{ display:none; }
   body::before, body::after{ display:none; }
@@ -483,7 +467,7 @@ footer{ border-top:1px solid var(--line); padding:34px 0 44px; margin-top:40px; 
 
 <body>
 
-<!-- ══════════════ NAV ══════════════ -->
+
 <header class="nav">
   <a class="brand" href="#top" aria-label="Home">
     <span class="brand-logo" aria-hidden="true">何</span>
@@ -508,7 +492,7 @@ footer{ border-top:1px solid var(--line); padding:34px 0 44px; margin-top:40px; 
 
 <main id="top">
 
-<!-- ══════════════ HERO / ABOUT ══════════════ -->
+
 <section class="hero" id="about">
   <div class="container">
     <div class="bento">
@@ -555,12 +539,12 @@ footer{ border-top:1px solid var(--line); padding:34px 0 44px; margin-top:40px; 
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
             Email
           </a>
-          <!-- SCHOLAR-LINK:已设置为个人主页,如需更换直接改下面的 href -->
+          <!-- SCHOLAR-LINK -->
           <a class="btn" href="https://scholar.google.com/citations?hl=en&amp;user=ASg_aUcAAAAJ" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
             Google Scholar
           </a>
-          <!-- 如需 GitHub 按钮,取消下面注释并填入你的地址
+          <!-- 
           <a class="btn" href="https://github.com/yourname" target="_blank" rel="noopener">GitHub</a>
           -->
         </div>
@@ -569,7 +553,7 @@ footer{ border-top:1px solid var(--line); padding:34px 0 44px; margin-top:40px; 
   </div>
 </section>
 
-<!-- ══════════════ NEWS ══════════════ -->
+
 <section id="news" class="reveal">
   <div class="container">
     <div class="sec-head">
@@ -644,7 +628,7 @@ footer{ border-top:1px solid var(--line); padding:34px 0 44px; margin-top:40px; 
   </div>
 </section>
 
-<!-- ══════════════ RESEARCH ══════════════ -->
+
 <section id="research" class="reveal">
   <div class="container">
     <div class="sec-head">
@@ -693,7 +677,7 @@ footer{ border-top:1px solid var(--line); padding:34px 0 44px; margin-top:40px; 
   </div>
 </section>
 
-<!-- ══════════════ PUBLICATIONS ══════════════ -->
+
 <section id="publications" class="reveal">
   <div class="container">
     <div class="sec-head">
@@ -819,7 +803,7 @@ footer{ border-top:1px solid var(--line); padding:34px 0 44px; margin-top:40px; 
   </div>
 </section>
 
-<!-- ══════════════ EDUCATION ══════════════ -->
+
 <section id="education" class="reveal">
   <div class="container">
     <div class="sec-head">
@@ -871,7 +855,7 @@ footer{ border-top:1px solid var(--line); padding:34px 0 44px; margin-top:40px; 
   </div>
 </section>
 
-<!-- ══════════════ HONORS ══════════════ -->
+
 <section id="honors" class="reveal">
   <div class="container">
     <div class="sec-head">
@@ -900,7 +884,7 @@ footer{ border-top:1px solid var(--line); padding:34px 0 44px; margin-top:40px; 
   </div>
 </section>
 
-<!-- ══════════════ ACADEMIC SERVICE ══════════════ -->
+
 <section id="service" class="reveal">
   <div class="container">
     <div class="sec-head">
@@ -917,14 +901,13 @@ footer{ border-top:1px solid var(--line); padding:34px 0 44px; margin-top:40px; 
           <li>IEEE Internet of Things Journal <span class="sv-abbr">IoTJ</span></li>
         </ul>
       </div>
-      <!-- 新增期刊:在上面复制一行 <li>;新增类别(如会议审稿):复制整个 def-row 块 -->
+
     </div>
   </div>
 </section>
 </main>
 
-<!-- ══════════════ FOOTER ══════════════ -->
-<!-- ══════════════ CONTACT ══════════════ -->
+
 <section id="contact" class="reveal">
   <div class="container">
     <div class="sec-head">
